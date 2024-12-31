@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Array CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+    <form class="w-50 mx-auto" method="post" action="/user/edit/<%= user.id %>">
+        <h2>Array CRUD</h2>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">User Name</label>
+            <input type="text" name="username" value="<%= user.username %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" name="email" value="<%= user.email %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" name="password" value="<%= user.password %>" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Gender: </label>
+            <input type="radio" name="gender" value="male" <% if(user.gender == 'male') { %> checked <% } %>  class="form-check-input" id="flexRadioDefault1"> Male
+            <input type="radio" name="gender" value="female" <% if(user.gender == 'female') { %> checked <% } %> class="form-check-input" id="exampleInputPassword1"> Female
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Hobby: </label>
+            <input type="checkbox" name="hobby" value="reading" <% if(user.hobby.includes("reading")) {%> checked <%}%> class="form-check-input" id="flexRadioDefault1"> reading
+            <input type="checkbox" name="hobby" value="dancing" <% if(user.hobby.includes("dancing")) {%> checked <%}%> class="form-check-input" id="exampleInputPassword1"> dancing
+        </div>
+        <select class="form-select form-select-sm w-50" name="city" value="<%= user.city %>"  aria-label=".form-select-sm example">
+            <option selected disabled >Open this select menu</option>
+            <% 
+            let cities = ["Rajkot","Vadodara","Surat"];
+            cities.map((city)=>{ %>
+                <option value="<%= city  %>" <% if(user.city == city) {%> selected <%}%> > <%= city %></option>
+            <% }) %>
+            <!-- <option value="Rajkot">Rajkot</option>
+            <option value="Vadodara">Vadodara</option>
+            <option value="Surat">Surat</option> -->
+        </select>
+        <div class="form-floating">
+            <textarea class="form-control w-50 my-3" name="address" placeholder="Leave a comment here" id="floatingTextarea"> <%= user.address %> </textarea>
+            <label for="floatingTextarea">Address</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
+</html>
