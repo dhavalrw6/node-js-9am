@@ -33,7 +33,24 @@ app.post('/user/create', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-    return res.render('index');
+    userModel.find({}).then((data) => {
+        console.log(data);
+        return res.render('index', { data });
+    }).catch((err) => {
+        console.log(err);
+        return res.render('index', { data: [] });
+    })
+})
+
+app.get('/user/delete/:id', (req, res) => {
+    let { id } = req.params;
+    userModel.findByIdAndDelete(id).then((data) => {
+        console.log("user deleted." + data.id);
+        return res.redirect(req.get('Referrer') || '/');
+    }).catch((err) => {
+        console.log(err.message);
+        return res.redirect(req.get('Referrer') || '/');
+    })
 })
 
 
