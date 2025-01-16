@@ -6,7 +6,7 @@ const adminRouter = Router();
 
 adminRouter.get('/admin', adminController.homePage);
 adminRouter.get('/movie/create', adminController.addMoviePage);
-adminRouter.post('/movie/create', imageUpload, adminController.createMoviePage);
+adminRouter.post('/movie/create', imageUpload, adminController.createMovie);
 
 adminRouter.get('/movie/view', adminController.viewMoviePage);
 

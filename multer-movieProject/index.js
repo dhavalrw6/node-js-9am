@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const db = require('./config/database');
 
 const port = 8081;
 
@@ -16,6 +17,7 @@ app.use('/', require('./routers'));
 
 app.listen(port, (err) => {
     if (!err) {
+        db();
         console.log("server start.");
         console.log("http://localhost:" + port)
     }
