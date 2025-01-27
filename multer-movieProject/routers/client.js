@@ -9,6 +9,6 @@ clientRouter.get('/about', clientController.aboutPage);
 clientRouter.get('/contact', clientController.contactPage);
 clientRouter.get('/joinus', clientController.joinusPage);
 clientRouter.get('/review', clientController.reviewPage);
-clientRouter.get('/single', clientController.singlePage);
+clientRouter.get('/single/:id', clientController.singlePage);
 
 module.exports = clientRouter;

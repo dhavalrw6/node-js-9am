@@ -12,6 +12,12 @@ adminRouter.get('/movie/view', adminController.viewMoviePage);
 
 adminRouter.get('/movie/delete/:id', adminController.movieDelete);
 
-adminRouter.get('/edit/:id', adminController.movieEditPage)
+adminRouter.get('/edit/:id', adminController.movieEditPage);
+
+adminRouter.get('/signup',adminController.signupPage);
+adminRouter.post('/signup',adminController.signup);
+
+adminRouter.get('/login',adminController.loginPage);
+adminRouter.post('/login',adminController.login);
 
 module.exports = adminRouter;

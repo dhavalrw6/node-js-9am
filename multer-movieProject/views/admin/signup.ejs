@@ -50,14 +50,7 @@
       <!-- Login box.scss -->
       <!-- ============================================================== -->
       <div
-        class="
-          auth-wrapper
-          d-flex
-          no-block
-          justify-content-center
-          align-items-center
-          bg-dark
-        "
+        class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark"
       >
         <div class="auth-box bg-dark border-top border-secondary">
           <div>
@@ -67,7 +60,7 @@
               /></span>
             </div>
             <!-- Form -->
-            <form class="form-horizontal mt-3" action="index.html">
+            <form class="form-horizontal mt-3" action="" method="post">
               <div class="row pb-4">
                 <div class="col-12">
                   <div class="input-group mb-3">
@@ -85,6 +78,7 @@
                       aria-label="Username"
                       aria-describedby="basic-addon1"
                       required
+                      name="username"
                     />
                   </div>
                   <!-- email -->
@@ -103,6 +97,7 @@
                       aria-label="Username"
                       aria-describedby="basic-addon1"
                       required
+                      name="email"
                     />
                   </div>
                   <div class="input-group mb-3">
@@ -120,6 +115,7 @@
                       aria-label="Password"
                       aria-describedby="basic-addon1"
                       required
+                      name="password"
                     />
                   </div>
                   <div class="input-group mb-3">
@@ -137,6 +133,7 @@
                       aria-label="Password"
                       aria-describedby="basic-addon1"
                       required
+                      name="confirm_password"
                     />
                   </div>
                 </div>
@@ -151,6 +148,13 @@
                       >
                         Sign Up
                       </button>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="pt-3 d-grid">
+                      <a href="/login" class="btn btn-block btn-lg btn-info">
+                        Login
+                      </a>
                     </div>
                   </div>
                 </div>
